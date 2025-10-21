@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Banner Builder</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="site-title-container">
+                <img src="/static/new_title.png" alt="Binary Banner Builder" class="site-title-logo">
+            </div>
+            <p>Crafting personalized digital art from binary patterns that merge creativity, data, and design into a signature visual for your profile.</p>
+        </header>
+
+        <!-- Progress Indicator -->
+        <div class="wizard-progress">
+            <div class="progress-step active clickable" data-step="0" onclick="goToStep(0)">
+                <div class="step-number">0</div>
+                <div class="step-label">About</div>
+            </div>
+            <div class="progress-connector dashed"></div>
+            <div class="progress-step clickable" data-step="1" onclick="goToStep(1)">
+                <div class="step-number">1</div>
+                <div class="step-label">Canvas</div>
+            </div>
+            <div class="progress-connector"></div>
+            <div class="progress-step clickable" data-step="2" onclick="goToStep(2)">
+                <div class="step-number">2</div>
+                <div class="step-label">Mask Editor</div>
+            </div>
+            <div class="progress-connector"></div>
+            <div class="progress-step clickable" data-step="3" onclick="goToStep(3)">
+                <div class="step-number">3</div>
+                <div class="step-label">Grid</div>
+            </div>
+            <div class="progress-connector"></div>
+            <div class="progress-step clickable" data-step="4" onclick="goToStep(4)">
+                <div class="step-number">4</div>
+                <div class="step-label">Text Zones</div>
+            </div>
+            <div class="progress-connector"></div>
+            <div class="progress-step clickable" data-step="5" onclick="goToStep(5)">
+                <div class="step-number">5</div>
+                <div class="step-label">Review & Render</div>
+            </div>
+        </div>
+
+        <!-- Wizard Steps Container -->
+        <div class="wizard-container">
+            
+            <!-- STEP 0: About -->
+            <div class="wizard-step active" id="step-0">
+                <div class="about-content">
+                    <!-- Hero Section with White Background -->
+                    <div class="about-hero-section">
+                        <h2>Welcome to Binary Banner Builder</h2>
+                        <p style="font-size: 1.1em; color: #666; margin-bottom: 30px;">Crafting personalized digital art from binary patterns that merge creativity, data, and design into a signature visual for your profile.</p>
+                        
+                        <!-- Jump Navigation -->
+                        <div class="jump-navigation-section">
+                            <div class="jump-navigation-grid">
+                                <div class="jump-nav-card" onclick="scrollToSection('how-it-works')">
+                                    <div class="jump-nav-icon">
+                                        <img src="/static/custom_icons/about_icon.png" alt="How It Works">
+                                    </div>
+                                    <h4>How It Works</h4>
+                                    <p>Learn the step-by-step process</p>
+                                </div>
+                                <div class="jump-nav-card" onclick="scrollToSection('example-gallery')">
+                                    <div class="jump-nav-icon">
+                                        <img src="/static/custom_icons/gallery_icon.png" alt="View Example Gallery">
+                                    </div>
+                                    <h4>View Example Gallery</h4>
+                                    <p>See what you can create</p>
+                                </div>
+                                <div class="jump-nav-card" onclick="goToStep(1)">
+                                    <div class="jump-nav-icon">
+                                        <img src="/static/custom_icons/continue_icon.png" alt="Get Started">
+                                    </div>
+                                    <h4>Get Started</h4>
+                                    <p>Begin building your banner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-section" id="how-it-works">
+                        <h3>How It Works</h3>
+                        <div class="steps-overview">
+                            <div class="overview-step">
+                                <div class="overview-number">1</div>
+                                <div class="overview-content">
+                                    <h4>Canvas Settings</h4>
+                                    <p>Pick a preset (e.g., LinkedIn 1584×396) or enter custom dimensions, then choose a mask that defines where the 1s and 0s will appear. The canvas preview reflects your aspect ratio so you can see composition and safe areas before you move on.</p>
+                                </div>
+                            </div>
+                            <div class="overview-step">
+                                <div class="overview-number">2</div>
+                                <div class="overview-content">
+                                    <h4>Mask Editor</h4>
+                                    <p>Refine the mask so the silhouette reads cleanly at banner scale. Use the threshold to snap grayscale into solid shapes, invert to test positive/negative looks, and brush in or out details until the edges feel intentional.</p>
+                                </div>
+                            </div>
+                            <div class="overview-step">
+                                <div class="overview-number">3</div>
+                                <div class="overview-content">
+                                    <h4>Grid Settings</h4>
+                                    <p>Shape the binary texture by tuning font, size, spacing, weight, and color against your background. This is where you balance density and legibility so the digits feel engineered—not noisy—and the overall contrast supports any text you'll add later.</p>
+                                </div>
+                            </div>
+                            <div class="overview-step">
+                                <div class="overview-number">4</div>
+                                <div class="overview-content">
+                                    <h4>Text Zones</h4>
+                                    <p>Add your headline or short phrase in one or more zones and position it precisely on the layout. Zone settings let you control size, alignment, color, and offsets so the copy integrates with (or floats above) the digit grid without crowding the composition.</p>
+                                </div>
+                            </div>
+                            <div class="overview-step">
+                                <div class="overview-number">5</div>
+                                <div class="overview-content">
+                                    <h4>Review & Render</h4>
+                                    <p>Scan the summary cards, make any quick adjustments, then render the final image at your chosen resolution. Use the built-in LinkedIn preview to confirm the banner plays nicely with the profile photo and headline before you download.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-section about-gallery-section" id="example-gallery">
+                        <h3>Example Gallery</h3>
+                        <p style="color: #666; margin-bottom: 20px;">Get inspired by these examples of binary art banners</p>
+                        
+                        <!-- Carousel Container -->
+                        <div class="carousel-container">
+                            <div class="carousel-layout">
+                                <!-- Left: Main Preview (Square) -->
+                                <div class="carousel-main-preview">
+                                    <div class="carousel-slides">
+                                        <div class="carousel-slide active">
+                                            <img src="/static/examples/00_set_of_three_exmple_linkedin_banners.png" alt="Set of three LinkedIn banner examples">
+                                            <div class="carousel-caption-overlay">
+                                                <p>Cover Banner Examples (Set of 3)</p>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-slide">
+                                            <img src="/static/examples/01_example_linkedin_preview1.png" alt="LinkedIn preview example 1">
+                                            <div class="carousel-caption-overlay">
+                                                <p>Custom Banners within LinkedIn Preview Feature</p>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-slide">
+                                            <img src="/static/examples/02_example_linkedin_preview2.png" alt="LinkedIn preview example 2">
+                                            <div class="carousel-caption-overlay">
+                                                <p>Custom Banners within LinkedIn Preview Feature</p>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-slide">
+                                            <img src="/static/examples/03_example_custom1.png" alt="Custom design example 1">
+                                            <div class="carousel-caption-overlay">
+                                                <p>Example of generated art (Not LinkedIn focused)</p>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-slide">
+                                            <img src="/static/examples/04_example_custom2.png" alt="Custom design example 2">
+                                            <div class="carousel-caption-overlay">
+                                                <p>Example of generated art (Not LinkedIn focused)</p>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-slide">
+                                            <img src="/static/examples/04_example_custom3.png" alt="Custom design example 3">
+                                            <div class="carousel-caption-overlay">
+                                                <p>Example of generated art (Not LinkedIn focused)</p>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-slide">
+                                            <img src="/static/examples/05_example_custom5.png" alt="Custom design example 5">
+                                            <div class="carousel-caption-overlay">
+                                                <p>Example of generated art (Not LinkedIn focused)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Right: 3x3 Grid of Thumbnails -->
+                                <div class="carousel-thumbnail-grid">
+                                    <div class="carousel-thumbnail active" onclick="goToSlide(0)" data-label="Cover Banner Examples (Set of 3)">
+                                        <img src="/static/examples/00_set_of_three_exmple_linkedin_banners.png" alt="Thumbnail 1">
+                                        <div class="thumbnail-label-hover">Cover Banner Examples (Set of 3)</div>
+                                    </div>
+                                    <div class="carousel-thumbnail" onclick="goToSlide(1)" data-label="Custom Banners within LinkedIn Preview Feature">
+                                        <img src="/static/examples/01_example_linkedin_preview1.png" alt="Thumbnail 2">
+                                        <div class="thumbnail-label-hover">Custom Banners within LinkedIn Preview Feature</div>
+                                    </div>
+                                    <div class="carousel-thumbnail" onclick="goToSlide(2)" data-label="Custom Banners within LinkedIn Preview Feature">
+                                        <img src="/static/examples/02_example_linkedin_preview2.png" alt="Thumbnail 3">
+                                        <div class="thumbnail-label-hover">Custom Banners within LinkedIn Preview Feature</div>
+                                    </div>
+                                    <div class="carousel-thumbnail" onclick="goToSlide(3)" data-label="Example of generated art (Not LinkedIn focused)">
+                                        <img src="/static/examples/03_example_custom1.png" alt="Thumbnail 4">
+                                        <div class="thumbnail-label-hover">Example of generated art</div>
+                                    </div>
+                                    <div class="carousel-thumbnail" onclick="goToSlide(4)" data-label="Example of generated art (Not LinkedIn focused)">
+                                        <img src="/static/examples/04_example_custom2.png" alt="Thumbnail 5">
+                                        <div class="thumbnail-label-hover">Example of generated art</div>
+                                    </div>
+                                    <div class="carousel-thumbnail" onclick="goToSlide(5)" data-label="Example of generated art (Not LinkedIn focused)">
+                                        <img src="/static/examples/04_example_custom3.png" alt="Thumbnail 6">
+                                        <div class="thumbnail-label-hover">Example of generated art</div>
+                                    </div>
+                                    <div class="carousel-thumbnail" onclick="goToSlide(6)" data-label="Example of generated art (Not LinkedIn focused)">
+                                        <img src="/static/examples/05_example_custom5.png" alt="Thumbnail 7">
+                                        <div class="thumbnail-label-hover">Example of generated art</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-cta">
+                        <button class="btn btn-primary btn-large" onclick="goToStep(1)">Get Started →</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- STEP 1: Canvas Settings -->
+            <div class="wizard-step" id="step-1">
+                <div class="step-content">
+                    <div class="step-controls">
+                        <h2>Canvas Settings</h2>
+                        <p>Configure your canvas dimensions and mask</p>
+                        
+                        <div class="canvas-settings-left">
+                            <div class="form-group">
+                                <label>Preset Sizes</label>
+                                <div class="preset-with-ratio">
+                                    <select id="preset-size">
+                                        <option value="custom">Custom</option>
+                                        <option value="1584x396" selected>LinkedIn Banner (1584×396)</option>
+                                        <option value="1920x1080">Full HD (1920×1080)</option>
+                                        <option value="1080x1920">Full HD Portrait (1080×1920)</option>
+                                        <option value="1200x628">Facebook Cover (1200×628)</option>
+                                        <option value="1500x500">Twitter Header (1500×500)</option>
+                                        <option value="2560x1440">2K (2560×1440)</option>
+                                    </select>
+                                    <span class="canvas-ratio" id="canvas-ratio-display">4:1 ratio</span>
+                                </div>
+                            </div>
+
+                            <div class="canvas-dimensions-row">
+                                <div class="form-group">
+                                    <label>Width (px)</label>
+                                    <input type="number" id="canvas-width" value="1584" min="100" max="5000">
+                                </div>
+                                <div class="form-group">
+                                    <label>Height (px)</label>
+                                    <input type="number" id="canvas-height" value="396" min="100" max="5000">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="canvas-settings-right">
+                            <div class="form-group">
+                                <div class="form-group-label">Image Mask</div>
+                                
+                                <!-- Mask Mode Selector -->
+                                <div class="mask-mode-selector">
+                                    <button type="button" class="mask-mode-btn active" id="mode-default" data-mode="default">
+                                        SELECT FROM DEFAULT MASKS
+                                    </button>
+                                    <button type="button" class="mask-mode-btn" id="mode-custom" data-mode="custom">
+                                        UPLOAD CUSTOM MASK
+                                    </button>
+                                </div>
+                                
+                                <!-- Custom Upload Option (shown when custom mode selected) -->
+                                <div class="custom-upload-section" style="display: none;">
+                                    <div class="mask-thumbnail-option upload-option">
+                                        <input type="radio" id="mask-custom" name="mask-type" value="custom">
+                                        <label for="mask-custom">
+                                            <div class="upload-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                                    <polyline points="17 8 12 3 7 8"/>
+                                                    <line x1="12" y1="3" x2="12" y2="15"/>
+                                                </svg>
+                                            </div>
+                                            <span class="mask-name">Upload Custom</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <input type="file" id="mask-upload" accept="image/*" style="display: none;">
+                                <div id="mask-preview" class="mask-preview"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-preview">
+                        <h3>Canvas Preview</h3>
+                        <div class="canvas-preview-container">
+                            <div id="canvas-shape-preview" class="canvas-shape">
+                                <img id="canvas-mask-image" src="" alt="Mask preview" style="display: none;">
+                                <div id="canvas-placeholder" class="canvas-placeholder">
+                                    <div class="placeholder-icon">📐</div>
+                                    <div class="placeholder-text">Select a mask to preview</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Default Masks Row (shown when default mode selected) -->
+                        <div class="default-masks-row" id="default-masks-row">
+                            <div class="mask-thumbnail-option">
+                                <input type="radio" id="mask-arrow" name="mask-type" value="arrow">
+                                <label for="mask-arrow">
+                                    <img src="/api/mask/arrow" alt="Arrow mask">
+                                    <span class="mask-name">Arrow</span>
+                                </label>
+                            </div>
+                            <div class="mask-thumbnail-option">
+                                <input type="radio" id="mask-skyline" name="mask-type" value="skyline">
+                                <label for="mask-skyline">
+                                    <img src="/api/mask/skyline" alt="Skyline mask">
+                                    <span class="mask-name">Skyline (Boston)</span>
+                                </label>
+                            </div>
+                            <div class="mask-thumbnail-option">
+                                <input type="radio" id="mask-border" name="mask-type" value="border">
+                                <label for="mask-border">
+                                    <img src="/api/mask/border" alt="Border mask">
+                                    <span class="mask-name">Border</span>
+                                </label>
+                            </div>
+                            <div class="mask-thumbnail-option">
+                                <input type="radio" id="mask-nomask" name="mask-type" value="nomask">
+                                <label for="mask-nomask">
+                                    <img src="/api/mask/nomask" alt="No mask">
+                                    <span class="mask-name">Fill (empty)</span>
+                                </label>
+                            </div>
+                            <div class="mask-thumbnail-option">
+                                <input type="radio" id="mask-triangles" name="mask-type" value="triangles">
+                                <label for="mask-triangles">
+                                    <img src="/api/mask/triangles" alt="Triangles mask">
+                                    <span class="mask-name">Triangles</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 2: Mask Editor (Custom Mask Only) -->
+            <div class="wizard-step" id="step-2">
+                <div class="step-content">
+                    <div class="step-controls">
+                        <h2>Custom Mask Editor</h2>
+                        <p>Adjust your uploaded mask image</p>
+                        
+                        <div class="form-group">
+                            <label>Fit to Canvas</label>
+                            <div class="fit-buttons">
+                                <button type="button" class="fit-btn" id="fit-contain">Contain (Fit Within)</button>
+                                <button type="button" class="fit-btn" id="fit-cover">Cover (Fill Canvas)</button>
+                                <button type="button" class="fit-btn" id="fit-stretch">Stretch (Exact Fit)</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Threshold <span id="threshold-value">128</span></label>
+                            <input type="range" id="threshold-slider" min="0" max="255" value="128">
+                            <p class="help-text">Adjust to control which areas appear as white (visible digits) vs black (hidden)</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="invert-mask"> Invert Mask (Swap Black/White)
+                            </label>
+                            <p class="help-text">Flip which areas show digits vs hide them</p>
+                        </div>
+
+                        <!-- Brush Tool Panel in Left Column -->
+                        <div class="brush-tool-panel-left">
+                            <h6 class="brush-panel-header">Brush Tool (optional)</h6>
+                            <div class="brush-size-top">
+                                <label class="brush-section-label">Brush Size: <span id="brush-size-value">20</span>px</label>
+                                <input type="range" id="brush-size" min="5" max="100" value="20">
+                            </div>
+                            
+                            <div class="brush-bottom-row">
+                                <div class="brush-color-left">
+                                    <label class="brush-section-label">Select Color</label>
+                                    <div class="color-selector">
+                                        <input type="radio" id="brush-white" name="brush-color" value="white" checked>
+                                        <label for="brush-white" class="color-box white-box" title="Paint White (Show Digits)"></label>
+                                        
+                                        <input type="radio" id="brush-black" name="brush-color" value="black">
+                                        <label for="brush-black" class="color-box black-box" title="Paint Black (Hide Digits)"></label>
+                                    </div>
+                                </div>
+                                
+                                <div class="brush-actions-right">
+                                    <button type="button" id="clear-brush" class="brush-btn">Clear Brush Edits</button>
+                                    <button type="button" id="apply-mask-changes" class="brush-btn primary">
+                                        💾 Apply & Continue
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="button" id="reset-mask" class="secondary-btn">Reset to Original</button>
+                        </div>
+                    </div>
+
+                    <div class="step-preview">
+                        <h3>Mask Preview</h3>
+                        <div class="mask-editor-container">
+                            <canvas id="mask-editor-canvas"></canvas>
+                            <div id="brush-cursor" class="brush-cursor"></div>
+                            <div id="mask-editor-loading" class="loading-overlay" style="display: none;">
+                                <div class="spinner"></div>
+                                <p>Processing mask...</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mask-editor-info">
+                            <p class="preview-note">
+                                <strong>White areas</strong> = digits visible | <strong>Black areas</strong> = digits hidden<br>
+                                Click and drag on the canvas to paint with the brush tool
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 3: Grid Settings -->
+            <div class="wizard-step" id="step-3">
+                <div class="step-content">
+                    <div class="step-controls">
+                        <h2>Grid Settings</h2>
+                        <p>Configure the 0/1 digit pattern</p>
+                        
+                        <div class="form-group">
+                            <label>Font Family</label>
+                            <select id="font-family">
+                                <option value="courier" selected>Courier</option>
+                                <option value="menlo">Menlo</option>
+                                <option value="monaco">Monaco</option>
+                                <option value="consolas">Consolas</option>
+                                <option value="jetbrains">JetBrains Mono</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Font Size: <span id="font-size-value">10</span>px</label>
+                            <input type="range" id="font-size" min="6" max="30" value="10" step="1">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Horizontal Spacing: <span id="h-spacing-value">0</span>px</label>
+                            <input type="range" id="horizontal-spacing" min="-10" max="20" value="0" step="1">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Vertical Spacing: <span id="v-spacing-value">6</span>px</label>
+                            <input type="range" id="vertical-spacing" min="0" max="30" value="6" step="1">
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="bold-digits"> Bold Digits
+                            </label>
+                        </div>
+
+                        <div class="color-controls-row">
+                            <div class="form-group">
+                                <label>Font Color</label>
+                                <div class="color-picker-group">
+                                    <input type="color" id="grid-font-color" value="#FFFFFF">
+                                    <span class="color-label">White (#FFFFFF)</span>
+                                </div>
+                                <small>Color of the binary digits (0s and 1s)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Background Color</label>
+                                <div class="color-picker-group">
+                                    <input type="color" id="grid-background-color" value="#000000">
+                                    <span class="color-label" id="bg-color-label">Black (#000000)</span>
+                                </div>
+                                <small>Background color for the banner</small>
+                            </div>
+                        </div>
+
+                        <button id="preview-grid-btn" class="btn btn-secondary btn-block">Update Grid Preview</button>
+                    </div>
+
+                    <div class="step-preview">
+                        <h3>Grid Preview (Before Masking)</h3>
+                        <div id="grid-preview-container" class="grid-preview-container">
+                            <p class="empty-state">Click "Update Grid Preview" to see the digit pattern</p>
+                        </div>
+                        <div id="grid-loading" class="loading" style="display: none;">
+                            <div class="spinner"></div>
+                            <span>Generating preview...</span>
+                        </div>
+                        <p class="preview-note">
+                            <span style="color: #ff4444;">●</span> Red border shows canvas boundaries. 
+                            Empty space outside the border is not part of your image.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 4: Text Zones -->
+            <div class="wizard-step" id="step-4">
+                <div class="step-content">
+                    <div class="step-controls">
+                        <h2>Text Zones</h2>
+                        <p>Click a zone to add/edit text</p>
+                        <div class="canvas-dimensions-hint" id="canvas-dimensions-hint">
+                            Canvas: 1584×396 (4:1 ratio)
+                        </div>
+                        
+                        <div class="zone-grid">
+                            <div class="zone-cell" data-zone="top_left">
+                                <span class="zone-label">Top Left</span>
+                                <span class="zone-indicator"></span>
+                            </div>
+                            <div class="zone-cell" data-zone="top_center">
+                                <span class="zone-label">Top Center</span>
+                                <span class="zone-indicator"></span>
+                            </div>
+                            <div class="zone-cell" data-zone="top_right">
+                                <span class="zone-label">Top Right</span>
+                                <span class="zone-indicator"></span>
+                            </div>
+                            
+                            <div class="zone-cell" data-zone="middle_left">
+                                <span class="zone-label">Middle Left</span>
+                                <span class="zone-indicator"></span>
+                            </div>
+                            <div class="zone-cell" data-zone="middle_center">
+                                <span class="zone-label">Middle Center</span>
+                                <span class="zone-indicator"></span>
+                            </div>
+                            <div class="zone-cell" data-zone="middle_right">
+                                <span class="zone-label">Middle Right</span>
+                                <span class="zone-indicator"></span>
+                            </div>
+                            
+                            <div class="zone-cell" data-zone="bottom_left">
+                                <span class="zone-label">Bottom Left</span>
+                                <span class="zone-indicator"></span>
+                            </div>
+                            <div class="zone-cell" data-zone="bottom_center">
+                                <span class="zone-label">Bottom Center</span>
+                                <span class="zone-indicator"></span>
+                            </div>
+                            <div class="zone-cell" data-zone="bottom_right">
+                                <span class="zone-label">Bottom Right</span>
+                                <span class="zone-indicator"></span>
+                            </div>
+                        </div>
+
+                        <div class="active-zones">
+                            <h3>Active Text Zones</h3>
+                            <div id="active-zones-list" class="active-zones-list">
+                                <p class="empty-state">No text zones added yet. Click a zone above to get started.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-preview">
+                        <h3>Zone Layout Preview</h3>
+                        <p>Text zones will overlay the digit pattern at the selected positions.</p>
+                        <div class="zone-layout-preview">
+                            <p>Live preview of your text placement:</p>
+                            <div id="zone-layout-visual" class="zone-layout-visual">
+                                <canvas id="zone-preview-canvas"></canvas>
+                            </div>
+                            <p class="preview-note">
+                                🔴 Red border = Banner boundaries (text outside this area will be cropped)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 5: Final Review & Render -->
+            <div class="wizard-step" id="step-5">
+                <div class="final-review-container">
+                    <h2>Final Review & Render</h2>
+                    <p>Review all settings and generate your banner</p>
+                    
+                    <!-- Settings Summary -->
+                    <div class="settings-summary">
+                        <div class="summary-card">
+                            <h3>Canvas Settings</h3>
+                            <div id="canvas-summary"></div>
+                            <button class="btn btn-sm" onclick="goToStep(1)">Edit</button>
+                            
+                            <!-- Section Divider -->
+                            <div class="card-section-divider"></div>
+                            
+                            <!-- Grid Settings Section -->
+                            <h4 class="card-subsection-title">Grid Settings</h4>
+                            <div id="grid-summary"></div>
+                            <button class="btn btn-sm" onclick="goToStep(3)">Edit</button>
+                        </div>
+
+                        <div class="summary-card">
+                            <h3>Active Text Zones</h3>
+                            <div id="final-active-zones-list"></div>
+                            <button id="modify-all-zones-btn" class="btn btn-primary" onclick="openBulkZoneEditor()" style="margin-top: 10px; width: 100%;">Modify All Text Zones</button>
+                        </div>
+
+                        <div class="summary-card">
+                            <h3>Advanced Settings</h3>
+                            <div class="form-group">
+                                <label>Resolution Multiplier</label>
+                                <select id="resolution">
+                                    <option value="1">1x (Fast)</option>
+                                    <option value="2">2x</option>
+                                    <option value="4" selected>4x (Crisp)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="apply-blur" checked> Apply Blur (smoothing)
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Clip Threshold: <span id="clip-threshold-value">0.68</span></label>
+                                <input type="range" id="clip-threshold" min="0" max="1" value="0.68" step="0.01">
+                                <small>Minimum coverage for digit visibility (0.0 - 1.0)</small>
+                            </div>
+                        </div>
+
+                        <div class="summary-card">
+                            <h3>LinkedIn Preview Customization</h3>
+                            <p id="linkedin-description" style="color: #666; font-size: 0.9em; margin-bottom: 20px;">Customize the LinkedIn profile information displayed in your banner preview</p>
+                            
+                            <div class="form-group" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                                <label style="margin: 0; font-weight: 600;">Enable Custom Profile</label>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="linkedin-customize-toggle">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+
+                            <div id="linkedin-custom-fields" style="display: none;">
+                                <div class="form-group">
+                                    <label>Profile Photo</label>
+                                    <div class="custom-file-upload">
+                                        <input type="file" id="linkedin-profile-photo" accept="image/*" style="display: none;">
+                                        <button type="button" class="btn btn-secondary file-upload-btn" onclick="document.getElementById('linkedin-profile-photo').click()">
+                                            Choose File
+                                        </button>
+                                        <span id="linkedin-photo-filename" class="file-upload-name">No file chosen</span>
+                                    </div>
+                                    <small>Upload your profile picture</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" id="linkedin-name" placeholder="e.g., John Smith">
+                                </div>
+
+                                <div class="form-group">
+                                    <!-- <label>Other</label> -->
+                                    <button type="button" class="btn btn-sm" id="linkedin-view-more">View All Options</button>
+                                </div>
+
+                                <button type="button" class="btn btn-primary" id="linkedin-apply-changes" style="width: 100%; margin-top: 15px;">Apply Changes to Preview</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Render Section -->
+                    <div class="render-section">
+                        <button id="render-btn" class="btn btn-primary btn-large">Generate Banner</button>
+                        <div id="loading" class="loading" style="display: none;">
+                            <div class="spinner"></div>
+                            <span>Rendering...</span>
+                        </div>
+                    </div>
+
+                    <!-- Preview -->
+                    <div class="final-preview-section" id="final-preview-section">
+                        <div class="preview-header">
+                            <h3>Banner Preview</h3>
+                            <div class="preview-mode-toggle">
+                                <label class="toggle-option">
+                                    <input type="radio" name="preview-mode" value="linkedin" id="preview-linkedin" checked>
+                                    <span>LinkedIn Preview</span>
+                                </label>
+                                <label class="toggle-option">
+                                    <input type="radio" name="preview-mode" value="basic" id="preview-basic">
+                                    <span>Basic</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div id="preview-container" class="preview-container" data-mode="linkedin">
+                            <p class="empty-state">Click "Generate Banner" to see preview</p>
+                        </div>
+                        <button id="download-btn" class="btn btn-primary" style="display: none;">Download Banner</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="wizard-navigation">
+            <button id="prev-btn" class="btn btn-secondary" disabled>← Previous</button>
+            <button id="next-btn" class="btn btn-primary">Next →</button>
+        </div>
+    </div>
+
+    <!-- Unsaved Changes Modal -->
+    <div id="unsaved-changes-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚠️ Unsaved Mask Edits</h2>
+            </div>
+            <div class="modal-body">
+                <p>You have unsaved changes to your mask!</p>
+                <p>Would you like to save your edits before continuing?</p>
+            </div>
+            <div class="modal-footer">
+                <button id="unsaved-discard-btn" class="btn btn-secondary">Continue Without Saving</button>
+                <button id="unsaved-save-btn" class="btn btn-primary">Save & Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Text Zone Editor Modal -->
+    <div id="zone-modal" class="modal">
+        <div class="modal-content" style="max-width: 900px;">
+            <div class="modal-header">
+                <h2>Edit Text Zone: <span id="modal-zone-name"></span></h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Top Section: Text Input & Live Preview Side-by-Side -->
+                <div class="zone-editor-top-section">
+                    <div class="zone-editor-left">
+                        <div class="form-group">
+                            <label>Text Content</label>
+                            <textarea id="zone-text" rows="8" placeholder="Enter your text here...&#10;Use line breaks for multiline text"></textarea>
+                        </div>
+                    </div>
+                    <div class="zone-editor-right">
+                        <div class="form-group">
+                            <label>Live Preview</label>
+                            <div style="background: #000; border: 5px solid #ffa915; border-radius: 8px; padding: 10px; display: flex; justify-content: center; align-items: center; min-height: 200px;">
+                                <canvas id="zone-live-preview" style="max-width: 100%; height: auto;"></canvas>
+                            </div>
+                            <small style="color: #666; font-size: 12px; display: block; margin-top: 4px;">
+                                Preview updates as you change settings
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="zone-controls-row">
+                    <div class="zone-control-item">
+                        <label>Font Size</label>
+                        <input type="number" id="zone-font-size" value="18" min="8" max="100">
+                    </div>
+                    <div class="zone-control-item">
+                        <label>Color</label>
+                        <input type="color" id="zone-color" value="#00c853">
+                    </div>
+                    <div class="zone-control-item">
+                        <label>Bold</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="zone-bold">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="zone-control-item">
+                        <label>Capitalize</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="zone-capitalize">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="offset-controls-row">
+                    <div class="offset-control-item">
+                        <label>Vertical Offset: <span id="y-offset-value">0</span>px</label>
+                        <div class="slider-container">
+                            <span class="slider-label-left">Down</span>
+                            <input type="range" id="zone-y-offset" min="-200" max="200" value="0" step="5" data-inverted="true">
+                            <span class="slider-label-right">Up</span>
+                        </div>
+                    </div>
+                    <div class="offset-control-item">
+                        <label>Horizontal Offset: <span id="x-offset-value">0</span>px</label>
+                        <div class="slider-container">
+                            <span class="slider-label-left">Left</span>
+                            <input type="range" id="zone-x-offset" min="-300" max="300" value="0" step="5">
+                            <span class="slider-label-right">Right</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alignment-control">
+                    <label id="zone-align-label" class="disabled" title="Requires multiple lines">Alignment</label>
+                    <div class="segmented-control-wrapper" id="zone-align-wrapper" title="Requires multiple lines">
+                        <div class="segmented-control" id="zone-align-control">
+                            <button type="button" class="segment-btn" data-value="left" disabled>LEFT</button>
+                            <button type="button" class="segment-btn active" data-value="center" disabled>CENTER</button>
+                            <button type="button" class="segment-btn" data-value="right" disabled>RIGHT</button>
+                        </div>
+                    </div>
+                    <input type="hidden" id="zone-align" value="center">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="zone-delete" class="btn btn-danger">Remove Text</button>
+                <button id="zone-save" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bulk Zone Editor Modal -->
+    <div id="bulk-zone-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Modify All Text Zones</h2>
+                <button class="bulk-modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="color: #666; margin-bottom: 20px;">Select which settings to apply to all active text zones.</p>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="bulk-apply-font-size"> Font Size
+                        </label>
+                        <input type="number" id="bulk-font-size" value="18" min="8" max="100" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="bulk-apply-color"> Color
+                        </label>
+                        <input type="color" id="bulk-color" value="#00c853" disabled>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="bulk-apply-y-offset"> Vertical Offset: <span id="bulk-y-offset-value">0</span>px
+                        </label>
+                        <input type="range" id="bulk-y-offset" min="-200" max="200" value="0" step="5" disabled>
+                        <small style="color: #666; font-size: 12px; display: block; margin-top: 4px;">
+                            Negative = move up, positive = move down
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="bulk-apply-x-offset"> Horizontal Offset: <span id="bulk-x-offset-value">0</span>px
+                        </label>
+                        <input type="range" id="bulk-x-offset" min="-300" max="300" value="0" step="5" disabled>
+                        <small style="color: #666; font-size: 12px; display: block; margin-top: 4px;">
+                            Negative = move left, positive = move right
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="bulk-apply-bold"> Apply Bold
+                        </label>
+                        <label style="margin-left: 20px;">
+                            <input type="checkbox" id="bulk-bold" disabled> Bold
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="bulk-apply-capitalize"> Apply Capitalize
+                        </label>
+                        <label style="margin-left: 20px;">
+                            <input type="checkbox" id="bulk-capitalize" disabled> Capitalize All
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="bulk-apply-align"> Alignment
+                    </label>
+                    <select id="bulk-align" disabled>
+                        <option value="left">Left</option>
+                        <option value="center" selected>Center</option>
+                        <option value="right">Right</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="bulk-cancel" class="btn">Cancel</button>
+                <button id="bulk-apply" class="btn btn-primary">Apply to All Zones</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LinkedIn Options Modal -->
+    <div id="linkedin-options-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>LinkedIn Preview Options</h2>
+                <button class="linkedin-modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Profile Photo</label>
+                    <div class="custom-file-upload">
+                        <input type="file" id="linkedin-profile-photo-modal" accept="image/*" style="display: none;">
+                        <button type="button" class="btn btn-secondary file-upload-btn" onclick="document.getElementById('linkedin-profile-photo-modal').click()">
+                            Choose File
+                        </button>
+                        <span id="linkedin-photo-filename-modal" class="file-upload-name">No file chosen</span>
+                    </div>
+                    <small>Upload your profile picture</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="linkedin-name-modal" placeholder="e.g., John Smith">
+                </div>
+
+                <div class="form-group">
+                    <label>Current Position</label>
+                    <input type="text" id="linkedin-position-modal" placeholder="e.g., Senior Developer">
+                </div>
+
+                <div class="form-group">
+                    <label>Headline</label>
+                    <input type="text" id="linkedin-headline-modal" placeholder="e.g., Software Engineer at Company">
+                </div>
+
+                <div class="form-group">
+                    <label>Company</label>
+                    <input type="text" id="linkedin-company-modal" placeholder="e.g., Tech Corp">
+                </div>
+
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" id="linkedin-location-modal" placeholder="e.g., San Francisco, CA">
+                </div>
+
+                <div class="form-group">
+                    <label>Connections</label>
+                    <input type="text" id="linkedin-connections-modal" placeholder="e.g., 500+">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="linkedin-modal-close-btn" class="btn btn-primary">Finish and Apply Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Gallery Modal -->
+    <div id="gallery-fullscreen-modal" class="gallery-fullscreen-modal">
+        <button class="gallery-fullscreen-close" onclick="closeGalleryFullscreen()">&times;</button>
+        <div class="gallery-fullscreen-content">
+            <img id="gallery-fullscreen-img" src="" alt="Fullscreen view">
+            <div class="gallery-fullscreen-label" id="gallery-fullscreen-label"></div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
